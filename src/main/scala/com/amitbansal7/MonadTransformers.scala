@@ -2,11 +2,11 @@ package com.amitbansal7
 
 object MonadTransformers {
 
-  def main(agrs: Array[String]): Unit = {
-    println("*" * 150)
-    code
-    println("*" * 150)
-  }
+  // def main(agrs: Array[String]): Unit = {
+  //   println("*" * 150)
+  //   code
+  //   println("*" * 150)
+  // }
 
   def code = {
     import cats.data.OptionT
@@ -54,8 +54,6 @@ object MonadTransformers {
 
     // val err2 = 42.pure[ErrorOrOption]
     // println(err2)
-
-    //Incomplete - 5, 3.6, 6
 
     import cats.data.Writer
 
