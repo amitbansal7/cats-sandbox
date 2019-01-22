@@ -2,11 +2,11 @@ package com.amitbansal7
 
 object Traverse_ {
 
-  // def main(agrs: Array[String]): Unit = {
-  //   println("*" * 150)
-  //   code
-  //   println("*" * 150)
-  // }
+  def main(agrs: Array[String]): Unit = {
+    println("*" * 150)
+    code
+    println("*" * 150)
+  }
 
   def code = {
 
@@ -45,5 +45,33 @@ object Traverse_ {
       ls.foldLeft(List.empty[B].pure[F]) { (acc, i) =>
         (acc, f(i)).mapN(_ :+ _)
       }
+
+    def listSequence[F[_]: Applicative, B](ls: List[F[B]]): F[List[B]] =
+      listTraverse(ls)(identity)
+
+    import cats.instances.vector._
+
+    println(listSequence(List(Vector(1, 2), Vector(3, 4), Vector(5, 6))))
+
+    import cats.instances.option._
+
+    def process(inps: List[Int]) =
+      listTraverse(inps)(n => if (n % 2 == 0) Some(n) else None)
+
+    println(process(List(2, 4, 6)))
+    println(process(List(2, 4, 5)))
+
+    import cats.data.Validated
+    import cats.instances.list._
+
+    def process2(inps: List[Int]): Validated[List[String], List[Int]] =
+      listTraverse(inps) { n =>
+        if (n % 2 == 0) Validated.valid(n)
+        else Validated.invalid(List(s"$n is not even"))
+      }
+
+    println(process2(List(2, 4, 6)))
+
+    println(process2(List(1, 2, 3, 4)))
   }
 }
