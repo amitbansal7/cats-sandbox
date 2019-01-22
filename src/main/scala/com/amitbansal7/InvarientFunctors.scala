@@ -6,11 +6,11 @@ import cats.implicits._
 
 object InvarientFunctor {
 
-  def main(agrs: Array[String]): Unit = {
-    println("*" * 150)
-    code
-    println("*" * 150)
-  }
+  // def main(agrs: Array[String]): Unit = {
+  //   println("*" * 150)
+  //   code
+  //   println("*" * 150)
+  // }
 
   def code() = {
 
