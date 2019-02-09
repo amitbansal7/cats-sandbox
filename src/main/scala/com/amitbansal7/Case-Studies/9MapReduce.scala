@@ -2,11 +2,11 @@ package com.amitbansal7
 
 object MapReduce {
 
-  def main(agrs: Array[String]): Unit = {
-    println("*" * 150)
-    code
-    println("*" * 150)
-  }
+  // def main(agrs: Array[String]): Unit = {
+  //   println("*" * 150)
+  //   code
+  //   println("*" * 150)
+  // }
 
   def code() = {
 
